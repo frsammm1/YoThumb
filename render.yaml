@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: newthumbchangingbot247
+    env: python
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: "pip install --upgrade pip && pip install -r requirements.txt"
+    startCommand: "python run.py"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: BOT_TOKEN
+        sync: false
+      - key: OWNER_ID
+        sync: false
+      - key: SUPPORT_USERNAME
+        sync: false
+      - key: GDRIVE_ENABLED
+        value: true
+      - key: GOOGLE_CREDENTIALS_JSON
+        sync: false
+      - key: GDRIVE_FOLDER_ID
+        sync: false
+    healthCheckPath: /health
